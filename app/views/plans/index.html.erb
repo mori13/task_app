@@ -31,7 +31,7 @@
           <td><%= plan.id %></td>
           <td><%= plan.title %></td>
           <td><%= plan.start.strftime("%Y年%m月%d日") %></td>
-          <td><%= plan.end.strftime("%Y年%m月%d日") %></td>
+          <td><%= plan.finish.strftime("%Y年%m月%d日") %></td>
           <td>
             <% if plan.all_day == true %>
               <%= "○" %>

@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def index
-    @plans = Plan.all
+    @plans = Plan.all.order(:start)
   end
 
   def new
@@ -8,7 +8,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(params.require(:plan).permit(:title,:start,:end,:all_day,:memo))
+    @plan = Plan.new(params.require(:plan).permit(:title,:start,:finish,:all_day,:memo))
     if @plan.save
       flash[:notice] = "スケジュールを登録しました。"
       redirect_to :plans
@@ -27,7 +27,7 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    if @plan.update(params.require(:plan).permit(:title,:start,:end,:all_day,:memo))
+    if @plan.update(params.require(:plan).permit(:title,:start,:finish,:all_day,:memo))
       flash[:notice] = "スケジュールを更新しました"
       redirect_to :plans
     else

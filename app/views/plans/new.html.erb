@@ -1,5 +1,7 @@
 <h3>スケジュール新規作成</h3>
 
+<%= render "shared/error", obj: @plan %>
+
 <% if flash.notice %>
  <p class="notice"><%= flash.notice%></p>
 <% end %>
@@ -17,8 +19,8 @@
     </tr>
 
     <tr>
-      <th><%= f.label :end ,"終了日" %></th>
-      <td><%= f.date_select :end %></td>
+      <th><%= f.label :finish ,"終了日" %></th>
+      <td><%= f.date_select :finish %></td>
     </tr>
 
     <tr>
