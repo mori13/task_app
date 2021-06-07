@@ -1,0 +1,29 @@
+<h3>スケジュール詳細</h3> 
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @plan.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @plan.start %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @plan.finish %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <%= render "shared/all_day" %>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @plan.memo %></td>
+  </tr>
+</table>
+
+<p><%= link_to "スケジュール一覧に戻る", root_path %></p>
+<p><%= link_to "スケジュールを編集する", [:edit, @plan] %><p>
+<p><%= link_to "スケジュールを削除する",@plan,method: :delete,data:{confirm:"本当に削除しますか？"}%><p>
+<%= render "shared/date" %>
